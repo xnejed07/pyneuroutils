@@ -30,7 +30,7 @@ class MP(neuro.ModelProgress):
 
 
 # Create object
-mp = MP(output_directory='directory_name')
+mp = MP(output_directory='./directory_path')
 
 # log model info
 mp.log('header', {'test0': 'Hello',
