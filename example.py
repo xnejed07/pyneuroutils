@@ -32,6 +32,13 @@ class MP(neuro.ModelProgress):
 # Create object
 mp = MP(output_directory='directory_name')
 
+# log model info
+mp.log('header', {'test0': 'Hello',
+                  'test1': 'World',
+                  'test2': 'This is a test',
+                  'model': 'ModelName',
+                  'epochs': '25'})
+
 for epoch in range(N):
     mp.newEpoch(idx=epoch,train=True)
     for x, t, m in dataset:
