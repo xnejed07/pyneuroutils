@@ -29,8 +29,18 @@ class MP(neuro.ModelProgress):
         return results
 
 
+# Crete object
+mp = MP(output_directory='directory_name')
 
-for x, t, m in dataset:
-    p = model(x)
-    mp.append(targets=t, probs=p,metadata=m)
-mp.evaluate()
+for epoch in range(N):
+    mp.newEpoch(idx=epoch,train=True)
+    for x, t, m in dataset:
+        p = model(x)
+        mp.append(targets=t, probs=p,metadata=m)
+    mp.evaluate()
+
+    mp.newEpoch(idx=epoch,test=True)
+    for x, t, m in dataset:
+        p = model(x)
+        mp.append(targets=t, probs=p,metadata=m)
+    mp.evaluate()
