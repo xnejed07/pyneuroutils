@@ -10,3 +10,5 @@
 pyneuroutils/__pycache__/
 
 *.pyc
+
+pypi_token\.txt
