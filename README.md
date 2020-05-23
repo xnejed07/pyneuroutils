@@ -1,1 +1,1 @@
-pyneuroutils
+NeuroUtils

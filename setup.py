@@ -1,0 +1,12 @@
+from setuptools import setup
+
+setup(
+    name='pyneuroutils',
+    version='1.0.0',
+    packages=['pyneuroutils'],
+    url='https://github.com/xnejed07/NeuroUtils',
+    license='MIT',
+    author='Petr Nejedly',
+    author_email='xnejed07@gmail.com',
+    description='', install_requires=['numpy', 'scikit-learn', 'matplotlib', 'pandas']
+)
