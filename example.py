@@ -29,7 +29,7 @@ class MP(neuro.ModelProgress):
         return results
 
 
-# Crete object
+# Create object
 mp = MP(output_directory='directory_name')
 
 for epoch in range(N):
