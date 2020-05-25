@@ -5,7 +5,7 @@ python:
 - '3.7'
 install:
 - pip install -r requirements.txt
-- pip install twine
+
 script:
 - python setup.py test
 - python setup.py bdist_wheel sdist
@@ -16,4 +16,4 @@ deploy:
     secure: UHCpdiBrWihDu4russUA8cxFgJa8nrknf0/I5DvuDiJgmf3bxiKPgng5b2RjoBDxH2osD1xD89U1+T9rTy0EvWAwx62CWyoLz1kwa6XNEGZ8/zuVNPIw/j/e/Uqqzq6yHxz+W2laNUk9YTjyg9XHE9hKRAjYYWw9luqfYxIHhPb0q4r2pzlEN8moAnhx9MCSShYpqB666vyHNweDFZXliQkv33J/apVj0IcOS6fdOWcAsT/ra4S1L9zw2YMKGNQkb6RYlFayD3Ov8a1xBfHBeOtEZHgQGIIM2Lf2leyUOfuQLJQ5HOfK7ohZ2SZnciJVVnTlOGnE/HsM5Bzv28ex4Gy9iEiHe9cyCOnUJNIhQEq59/UeymEq+rY60JqWfdrNTlUfSw+k0PwZpQRrDO4GpOFEK9gjC3wlD6VXzI9YiG1QvOnMOQMaFOcsCKiE+5Oq+yOVk98/qOTlmPr5AM/8Dj4uuVm7voXXgdcnqhZyKDCJSBlBNM1hBv9D+dd+qCCEtOFVR96sIXK8BppNkgULoOIIXBdu9ohqVuIaiikPIr+64QP7bzysaPre1k7+KWqzh+mD/3ZzDYNiLQkMcMPIaTzGCnWhEt2u+aeZb++ENcK/cRHCXe86hHDda3VXNuBJM9QZEwNx4DCvqtuax97cDe25Lpp+TA2kyAMoFDEdwRQ=
   skip_cleanup: true
   on:
-    tags: true
+    tags: false
