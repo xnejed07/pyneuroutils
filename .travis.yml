@@ -4,4 +4,4 @@ python:
   - '3.6'
   - '3.7'
 script:
-  - python tests.py
+  - python setup.py test
