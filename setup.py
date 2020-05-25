@@ -2,9 +2,9 @@ from setuptools import setup
 
 setup(
     name='pyneuroutils',
-    version='1.0.0',
+    version='1.0.1',
     packages=['pyneuroutils'],
-    url='https://github.com/xnejed07/NeuroUtils',
+    url='https://github.com/xnejed07/pyneuroutils',
     license='MIT',
     author='Petr Nejedly',
     author_email='xnejed07@gmail.com',
