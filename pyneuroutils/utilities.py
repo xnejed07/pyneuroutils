@@ -82,11 +82,6 @@ class Epoch:
         return df
 
 
-class NestedDict(dict):
-    def __missing__(self, k):
-        self[k] = NestedDict()
-        return self[k]
-
 
 class ModelProgress:
     def __init__(self, output_directory=None):
@@ -203,7 +198,7 @@ class ModelProgress:
             f.write(key + ":\n")
             for key, value in x_dict.items():
                 if isinstance(value, np.ndarray):
-                    value = str(np.round(value, 3))
+                    value = str(np.round(value, 3).tolist())
                 f.write("\t{}:{}\n".format(key, value))
 
     def log_data(self):
