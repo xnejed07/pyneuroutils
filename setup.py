@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='pyneuroutils',
-    version='1.0.1',
+    version='1.0.2',
     packages=['pyneuroutils'],
     url='https://github.com/xnejed07/pyneuroutils',
     license='MIT',
