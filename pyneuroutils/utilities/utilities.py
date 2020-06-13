@@ -91,6 +91,7 @@ class ModelProgress:
         self.path.dir = output_directory
         self.create_logs()
 
+
     def create_logs(self):
         if self.path.dir is None:
             return
@@ -171,10 +172,10 @@ class ModelProgress:
 
     @state.setter
     def state(self, value):
-        return Exception("Not accessible")
+        raise Exception("Not accessible")
 
     def now(self):
-        return datetime.now().strftime("%d%m%Y-%H%M%S")
+        return datetime.now().strftime("%Y%m%d-%H%M%S")
 
     def newEpoch(self, idx, train=False, valid=False, test=False):
         self.progress = Epoch(idx=idx)

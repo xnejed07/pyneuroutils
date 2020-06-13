@@ -1,19 +1,19 @@
 import unittest
+from types import SimpleNamespace
 
 from torch.utils.data import DataLoader
 
-from ..statistics import *
-from ..tests.test_helpers import *
-from ..utilities import *
-
+from pyneuroutils.datasets.iris import *
+from pyneuroutils.statistics import *
+from pyneuroutils.utilities import *
 
 class MP(ModelProgress):
     def evaluate(self, plot=False, verbose=False, threshold=None, log=True):
         results = dict()
-        results['auroc'] = Statistics.auroc_score(self.probs, self.targets)
-        results['auprc'] = Statistics.auprc_score(self.probs, self.targets)
-        results['confusion'] = Statistics.confusion_matrix_argmax(self.probs, self.targets)
-        results['f1'] = Statistics.f1_score_argmax(self.probs, self.targets)
+        results['auroc'] = auroc_score(self.probs, self.targets)
+        results['auprc'] = auprc_score(self.probs, self.targets)
+        results['confusion'] = confusion_matrix_argmax(self.probs, self.targets)
+        results['f1'] = f1_score_argmax(self.probs, self.targets)
 
         # if plot:
         #     k = self.probs[np.where(self.targets == 1), 1][0, :]
@@ -23,7 +23,10 @@ class MP(ModelProgress):
         #     plt.show()
 
         if verbose:
-            print(results)
+            for key,value in results.items():
+                if isinstance(value, np.ndarray):
+                    value = str(np.round(value, 3).tolist())
+                print("{}:{}\n".format(key,value))
 
         if log:
             self.log(key=str(self.progress), x_dict=results)
@@ -69,14 +72,14 @@ class Test(unittest.TestCase):
             # VALID LOOP
             mp.newEpoch(idx=epoch, valid=True)
             for i in range(10):
-                p, t = Statistics.random_binary_classifier(100, 0.2)
+                p, t = random_binary_classifier(100, 0.2)
                 mp.append(targets=t, probs=p)
             results = mp.evaluate(plot=True, verbose=True, threshold=None, log=True)
 
             # TEST LOOP
             mp.newEpoch(idx=epoch, test=True)
             for i in range(10):
-                p, t = Statistics.random_binary_classifier(100, 0.2)
+                p, t = random_binary_classifier(100, 0.2)
                 mp.append(targets=t, probs=p)
             results = mp.evaluate(plot=True, verbose=True, threshold=0.71, log=True)
 
