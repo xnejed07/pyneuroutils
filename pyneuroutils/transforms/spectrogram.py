@@ -3,7 +3,7 @@ from pyneuroutils.transforms.transform import transform
 
 
 class spectrogram(transform):
-    def __init__(self, fs, nperseg=None, noverlap=None, nfft=None, **kwargs):
+    def __init__(self, fs, nperseg, noverlap, nfft, **kwargs):
         super().__init__()
         self.fs = fs
         self.nperseg = nperseg
