@@ -24,7 +24,7 @@ class compose:
         return format_string
 
     def dumps(self):
-        return pickle.dumps(self)
+        return pickle.dumps(self,fix_imports=True)
 
     @staticmethod
     def loads(bytes_object):

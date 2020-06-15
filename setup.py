@@ -2,8 +2,8 @@ from setuptools import setup,find_packages
 
 setup(
     name='pyneuroutils',
-    version='1.0.8',
-    packages=['pyneuroutils.statistics','pyneuroutils.transforms','pyneuroutils.utilities'],
+    version='1.0.9',
+    packages=['pyneuroutils.statistics','pyneuroutils.transforms','pyneuroutils.utilities','pyneuroutils.datasets','pyneuroutils.mefd'],
     url='https://github.com/xnejed07/pyneuroutils',
     license='MIT',
     author='Petr Nejedly',
