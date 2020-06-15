@@ -2,7 +2,7 @@ from setuptools import setup,find_packages
 
 setup(
     name='pyneuroutils',
-    version='1.0.6-alfa',
+    version='1.0.7',
     packages=['pyneuroutils.statistics'],
     url='https://github.com/xnejed07/pyneuroutils',
     license='MIT',
