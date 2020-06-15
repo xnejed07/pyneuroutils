@@ -1,9 +1,9 @@
-from setuptools import setup
+from setuptools import setup,find_packages
 
 setup(
     name='pyneuroutils',
-    version='1.0.6',
-    packages=['pyneuroutils'],
+    version='1.0.6-alfa',
+    packages=['pyneuroutils.statistics'],
     url='https://github.com/xnejed07/pyneuroutils',
     license='MIT',
     author='Petr Nejedly',
