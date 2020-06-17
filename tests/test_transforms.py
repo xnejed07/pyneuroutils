@@ -84,6 +84,14 @@ class test(unittest.TestCase):
         y = transform(x)
         self.assertSequenceEqual(y.shape,(2,4))
 
+    def test_7(self):
+        x = 10 * np.random.randn(1, 10676439)
+        transform = compose([segment_1d(window=15000, overlap=10000),
+                             spectrogram(fs=5000, nperseg=256, noverlap=128, nfft=1024),
+                             crop(dim_y=200),
+                             zscore(axis=-1)])
+        y = transform(x)
+        stop = 1
 
 
 
