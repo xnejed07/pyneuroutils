@@ -72,6 +72,19 @@ class test(unittest.TestCase):
         stop = 1
 
 
+    def test_5(self):
+        x = 10 * np.random.randn(1, 11)
+        transform = segment_1d(window=4,overlap=2)
+        y = transform(x)
+        self.assertSequenceEqual(y.shape,(4,4))
+
+    def test_6(self):
+        x = 10 * np.random.randn(1, 11)
+        transform = segment_1d(window=4,overlap=0)
+        y = transform(x)
+        self.assertSequenceEqual(y.shape,(2,4))
+
+
 
 
 
