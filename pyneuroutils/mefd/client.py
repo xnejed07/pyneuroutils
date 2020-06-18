@@ -22,7 +22,7 @@ class MEFD_client(object):
         if self.verbose:
             print("client-init", os.getpid())
 
-    def connect(self, port):
+    def connect(self, port,test_connection=True):
         """
         This should be called in a new spawned process, not in main process -> where __init__ is called
         :param port:
@@ -35,6 +35,10 @@ class MEFD_client(object):
         self.poll.register(self.socket, zmq.POLLIN)
         if self.verbose:
             print('client-connect', os.getpid(), port)
+        if test_connection:
+            self.socket.send_pyobj({'task': "GET_STATUS"})
+            q = self.socket.recv_json()
+            print(q)
 
     def request(self,**kwargs):
         self.socket.send_pyobj(kwargs)
