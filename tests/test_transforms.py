@@ -94,6 +94,12 @@ class test(unittest.TestCase):
         stop = 1
 
 
+    def test_(self):
+        x = 10 * np.random.randn(2,500, 3600)
+        transform = compose([sample_spectrogram(n=8,window=600,seed=0)])
+        y = transform(x)
+        stop = 1
+
 
 
 

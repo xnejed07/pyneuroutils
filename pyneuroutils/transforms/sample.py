@@ -25,3 +25,29 @@ class sample_1d(transform):
             raise Exception("InvalidInputDimensins: {}".format(x.shape))
 
         return y
+
+
+class sample_spectrogram(transform):
+    def __init__(self,n,window,seed=None):
+        super().__init__()
+        self.window=window
+        self.n = n
+        self.seed = seed
+
+    def __call__(self, x):
+        if self.seed is not None:
+            np.random.seed(self.seed)
+
+        if x.ndim != 3:
+            raise Exception("InvalidInputDimensins: {}".format(x.shape))
+
+        B = self.n
+        CH = x.shape[0]
+        H = x.shape[1]
+        W = self.window
+
+        y = np.zeros((B,CH,H,W))
+        for i in range(self.n):
+            idx = np.random.randint(x.shape[-1] - self.window - 1)
+            y[i,:,:,:] = x[:,:, idx:idx + self.window]
+        return y
