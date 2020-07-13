@@ -64,13 +64,16 @@ def f1_score_argmax(probs, targets):
     y_pred = np.argmax(probs, axis=1)
     return f1_score(targets, y_pred)
 
-def auroc_score(probs, targets):
-    y_true = label_binarize(targets)
-    return skm.roc_auc_score(y_true=y_true, y_score=probs, average=None)
+def auroc_score(probs, targets, binarize=True):
+    if binarize:
+        targets = label_binarize(targets)
+    return skm.roc_auc_score(y_true=targets, y_score=probs, average=None)
 
-def auprc_score(probs, targets):
-    y_true = label_binarize(targets)
-    return skm.average_precision_score(y_true=y_true, y_score=probs, average=None)
+
+def auprc_score(probs, targets, binarize=True):
+    if binarize:
+        targets = label_binarize(targets)
+    return skm.average_precision_score(y_true=targets, y_score=probs, average=None)
 
 def random_binary_classifier(Nexamples, p):
     """
