@@ -13,3 +13,11 @@ pyneuroutils/__pycache__/
 
 pypi_token\.txt
 /.tox/
+
+.eggs/certifi-2020.6.20-py3.8.egg/certifi/
+
+.eggs/certifi-2020.6.20-py3.8.egg/EGG-INFO/
+
+.eggs/cycler-0.10.0-py3.8.egg/
+
+/.eggs/

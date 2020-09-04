@@ -13,7 +13,7 @@ class test(unittest.TestCase):
         transforms = compose([filtfilt(n=3, wn=(1 / 2500, 600 / 2500), btype='bandpass'),
                               spectrogram(fs=5000, nperseg=256, noverlap=128, nfft=1024),
                               zscore(axis=-1),
-                              crop(dim_y=100)])
+                              crop(dim_1=[0,100])])
 
         y = transforms(x)
         print(transforms)
@@ -26,7 +26,7 @@ class test(unittest.TestCase):
         transforms = compose([filtfilt(n=3, wn=(1 / 2500, 600 / 2500), btype='bandpass'),
                               spectrogram(fs=5000, nperseg=256, noverlap=128, nfft=1024),
                               zscore(axis=-1),
-                              crop(dim_y=100)])
+                              crop(dim_1=[0,100])])
 
         y = transforms(x)
         print(transforms)
@@ -40,7 +40,7 @@ class test(unittest.TestCase):
                               filtfilt(n=3, wn=(1 / 2500, 600 / 2500), btype='bandpass'),
                               spectrogram(fs=5000, nperseg=256, noverlap=128, nfft=1024),
                               zscore(axis=-1),
-                              crop(dim_y=100)])
+                              crop(dim_1=[0,100])])
 
         y = transforms(x)
 
@@ -53,7 +53,7 @@ class test(unittest.TestCase):
                               filtfilt(n=3, wn=(1 / 2500, 600 / 2500), btype='bandpass'),
                               spectrogram(fs=5000, nperseg=256, noverlap=128, nfft=1024),
                               zscore(axis=-1),
-                              crop(dim_y=100)])
+                              crop(dim_1=[0,100])])
 
         pkl = transforms.dumps()
         new = transforms.loads(pkl)
@@ -88,7 +88,7 @@ class test(unittest.TestCase):
         x = 10 * np.random.randn(1, 10676439)
         transform = compose([segment_1d(window=15000, overlap=10000),
                              spectrogram(fs=5000, nperseg=256, noverlap=128, nfft=1024),
-                             crop(dim_y=200),
+                             crop(dim_1=[0,200]),
                              zscore(axis=-1)])
         y = transform(x)
         stop = 1
