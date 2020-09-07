@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='pyneuroutils',
-    version='1.0.15',
+    version='1.0.16',
     packages=['pyneuroutils.statistics', 'pyneuroutils.transforms', 'pyneuroutils.utilities', 'pyneuroutils.datasets',
               'pyneuroutils.mefd'],
     url='https://github.com/xnejed07/pyneuroutils',
